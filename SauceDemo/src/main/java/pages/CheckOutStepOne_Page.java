@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,5 +29,10 @@ public class CheckOutStepOne_Page {
 	
 	public boolean isSuccessfullCheckOutStepOne() {
 		return checkOutStepOnePage.isDisplayed();
+	}
+	
+	public void handleTheAlertPopUp() {
+		Alert alert=driver.switchTo().alert();
+		alert.accept();
 	}
 }

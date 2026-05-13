@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,6 +22,11 @@ public class CheckOutStepTwo_Page {
 	
 	public String successMessage() {
 		return successMsg.getText();
+	}
+	
+	public void handleTheAlertPopUp() {
+		Alert alert=driver.switchTo().alert();
+		alert.accept();
 	}
 	
 }

@@ -28,10 +28,39 @@ public class PageUtility {
 		action.dragAndDrop(source, dest).build().perform();
 	}
 	
+	public void rightClick(WebElement element,WebDriver driver) {
+		Actions action=new Actions(driver);
+		action.contextClick(element).perform();
+	}
 	
+	public void hoverOver(WebElement element,WebDriver driver) {
+		Actions action=new Actions(driver);
+		action.moveToElement(element).build().perform();
+		
+	}
 	
 	public void javascriptClick(WebDriver driver,WebElement element) {
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 		js.executeScript("arguments[0].click();", element);
+	}
+	
+	public void javascriptScrollDown(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,150)", element);
+	}	
+	
+	public void javascriptScrollUp(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,-150)", element);
+	}	
+	
+	public void javascriptFullScroll(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)", element);
+	}
+	
+	public void javascriptValueInput(WebDriver driver,WebElement element) {
+		JavascriptExecutor js=(JavascriptExecutor)driver;
+		js.executeScript("arguments[0].value='value';", element);
 	}
 }

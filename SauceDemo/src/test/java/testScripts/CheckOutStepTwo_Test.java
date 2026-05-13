@@ -14,13 +14,14 @@ import pages.CheckOutStepTwo_Page;
 import pages.InventoryPage;
 import pages.LoginPage;
 import sauceDemoBase.Base;
+import utilities.ExcelUtility;
 
 public class CheckOutStepTwo_Test extends Base {
 	
-	@Test(dataProvider = "ValueProvider")
-	public void verifyWhetherUserCanSuccessfullyFinishTheCheckOut(String fname,String lname,String postalCode) {
-		String username="standard_user";
-		String password="secret_sauce";
+	@Test
+	public void verifyWhetherUserCanSuccessfullyFinishTheCheckOut() throws Exception {
+		String username=ExcelUtility.getStringData(0, 0, "Login");
+		String password=ExcelUtility.getStringData(0, 1, "Login");
 		LoginPage loginPage=new LoginPage(driver);
 		loginPage.enterUserNameOnUserNameField(username).enterPassswordOnPasswordField(password).clickLogin();
 		
@@ -31,6 +32,9 @@ public class CheckOutStepTwo_Test extends Base {
 		cartPage.clickOnCheckOutButton();
 		
 		CheckOutStepOne_Page checkOutStepOne=new CheckOutStepOne_Page(driver);
+		String fname=ExcelUtility.getStringData(0, 0,"Details");
+		String lname=ExcelUtility.getStringData(1, 0,"Details");
+		String postalCode=ExcelUtility.getIntegerData(2, 0,"Details");
 		checkOutStepOne.enterTheInformation(fname,lname,postalCode);
 		
 		CheckOutStepTwo_Page checkOutTwo=new CheckOutStepTwo_Page(driver);

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<test thread-count="5" name="Test">
+		<parameter name="browsers" value="chrome"></parameter>
+		<classes>
+			<class name="testScripts.InventoryTest" />
+			<class name="testScripts.CheckOutStepTwo_Test" />
+			<class name="testScripts.CartTest" />
+			<class name="testScripts.LoginTest" />
+			<class name="testScripts.CheckOutStepOne_Test" />
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

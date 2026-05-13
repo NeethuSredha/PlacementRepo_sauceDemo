@@ -9,12 +9,13 @@ import pages.CartPage;
 import pages.InventoryPage;
 import pages.LoginPage;
 import sauceDemoBase.Base;
+import utilities.ExcelUtility;
 
 public class CartTest extends Base{
-	@Test
-	public void verifyWhetherUserCanSuccessfullyCheckOut() {
-		String username="standard_user";
-		String password="secret_sauce";
+	@Test(groups= {"smoke"})
+	public void verifyWhetherUserCanSuccessfullyCheckOut() throws Exception {
+		String username=ExcelUtility.getStringData(0, 0, "Login");
+		String password=ExcelUtility.getStringData(0, 1, "Login");
 		LoginPage loginPage=new LoginPage(driver);
 		loginPage.enterUserNameOnUserNameField(username).enterPassswordOnPasswordField(password).clickLogin();
 		InventoryPage inventoryPage=new InventoryPage(driver);
