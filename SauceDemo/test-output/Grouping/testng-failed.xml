@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Grouping]" guice-stage="DEVELOPMENT">
+  <parameter name="browsers" value="chrome"/>
+  <test thread-count="5" name="Test1(failed)">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="testScripts.CartTest">
+        <methods>
+          <include name="verifyWhetherUserCanSuccessfullyCheckOut"/>
+          <include name="initializeBrowser"/>
+          <include name="driverClose"/>
+        </methods>
+      </class> <!-- testScripts.CartTest -->
+      <class name="testScripts.CheckOutStepOne_Test">
+        <methods>
+          <include name="initializeBrowser"/>
+          <include name="verifyWhetherUserCanSuccessfullyCheckOutByEnteringDetails"/>
+          <include name="driverClose"/>
+        </methods>
+      </class> <!-- testScripts.CheckOutStepOne_Test -->
+    </classes>
+  </test> <!-- Test1(failed) -->
+</suite> <!-- Failed suite [Grouping] -->
