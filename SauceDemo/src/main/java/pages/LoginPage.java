@@ -23,6 +23,7 @@ public class LoginPage {
 	public LoginPage enterUserNameOnUserNameField(String username2) {
 		userName.sendKeys(username2);
 		return this;
+		
 	}
 
 	public LoginPage enterPassswordOnPasswordField(String password2) {
