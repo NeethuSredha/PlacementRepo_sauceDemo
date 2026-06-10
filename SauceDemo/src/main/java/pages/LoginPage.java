@@ -27,7 +27,7 @@ public class LoginPage {
 	}
 
 	public LoginPage enterPassswordOnPasswordField(String password2) {
-		password.sendKeys(password2);
+		  password.sendKeys(password2);
 		return this;
 	}
 
